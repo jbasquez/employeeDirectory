@@ -8,6 +8,16 @@ class Form extends Component {
         hireDate: "",
         phoneNumber: ""
     };
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        let value = event.target.value;
+        const name = event.target.name;
+    
+        // Updating the input's state
+        this.setState({
+          [name]: value
+        });
+      };
     formSubmit = event => {
         event.preventDefault();
         if(!this.state.firstName || !this.state.lastName){
@@ -19,6 +29,13 @@ class Form extends Component {
         }else{
             <p>thanks for your help</p>
         }
+        this.setState({
+            firstName: "",
+            lastName: "",
+            birthDate: "",
+            hireDate: "",
+            phoneNumber: ""
+        })
     }
     render() {
         return (
