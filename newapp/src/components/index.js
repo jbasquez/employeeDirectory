@@ -27,6 +27,13 @@ class Form extends Component {
                     type="text"
                     placeholder="Last Name"
                     />
+                    <input
+                    value={this.state.birthDate}
+                    name="birthDate"
+                    onChange={this.handleInputChange}
+                    type="date"
+                    placeholder="birth Day"
+                    />
                 </form>
             </div>
         )
