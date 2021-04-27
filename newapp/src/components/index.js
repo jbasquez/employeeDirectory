@@ -20,6 +20,13 @@ class Form extends Component {
                     type="text"
                     placeholder="First Name"
                     />
+                    <input
+                    value={this.state.lastName}
+                    name="lastName"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    placeholder="Last Name"
+                    />
                 </form>
             </div>
         )
