@@ -13,6 +13,7 @@ class Form extends Component {
             <div>
                 <p>Welcome!</p>
                 <form className="form">
+                    <p>First Name</p>
                     <input
                     value={this.state.firstName}
                     name="firstName"
@@ -20,6 +21,7 @@ class Form extends Component {
                     type="text"
                     placeholder="First Name"
                     />
+                    <p>Last Name</p>
                     <input
                     value={this.state.lastName}
                     name="lastName"
@@ -27,12 +29,21 @@ class Form extends Component {
                     type="text"
                     placeholder="Last Name"
                     />
+                    <p>Birthday</p>
                     <input
                     value={this.state.birthDate}
                     name="birthDate"
                     onChange={this.handleInputChange}
                     type="date"
                     placeholder="birth Day"
+                    />
+                    <p>Hire Date</p>
+                    <input
+                    value={this.state.hireDate}
+                    name="birthDate"
+                    onChange={this.handleInputChange}
+                    type="date"
+                    placeholder="Day of hiring"
                     />
                 </form>
             </div>
