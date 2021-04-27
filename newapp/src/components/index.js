@@ -11,7 +11,16 @@ class Form extends Component {
     render() {
         return (
             <div>
-                <p>test123</p>
+                <p>Welcome!</p>
+                <form className="form">
+                    <input
+                    value={this.state.firstName}
+                    name="firstName"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    placeholder="First Name"
+                    />
+                </form>
             </div>
         )
     }
