@@ -8,6 +8,12 @@ class Form extends Component {
         hireDate: "",
         phoneNumber: ""
     };
+    formSubmit = event => {
+        event.preventDefault();
+        if(!this.state.firstName || !this.state.lastName){
+            alert("Please enter your first and/or last name");
+        }
+    }
     render() {
         return (
             <div>
@@ -53,7 +59,7 @@ class Form extends Component {
                     type="text"
                     placeholder="xxx-xxx-xxxx"
                     />
-                    <button className="submit">Submit</button>
+                    <button onClick={this.formSubmit} className="submit">Submit</button>
                 </form>
             </div>
         )
