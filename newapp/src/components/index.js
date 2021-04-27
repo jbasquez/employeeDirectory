@@ -45,10 +45,19 @@ class Form extends Component {
                     type="date"
                     placeholder="Day of hiring"
                     />
+                    <p>Phone Number</p>
+                    <input
+                    value={this.state.phoneNumber}
+                    name="birthDate"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    placeholder="xxx-xxx-xxxx"
+                    />
+                    <button className="submit">Submit</button>
                 </form>
             </div>
         )
     }
-};
+}
 
 export default Form;
