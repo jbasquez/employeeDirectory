@@ -12,6 +12,12 @@ class Form extends Component {
         event.preventDefault();
         if(!this.state.firstName || !this.state.lastName){
             alert("Please enter your first and/or last name");
+        }else if(!this.state.birthDate || !this.state.hireDate){
+            alert("Please enter your birthday and/or the day you were hired");
+        }else if(!this.state.phoneNumber){
+            alert("Please enter your phone number");
+        }else{
+            <p>thanks for your help</p>
         }
     }
     render() {
