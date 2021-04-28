@@ -31,7 +31,11 @@ class App extends Component {
       }else{
         return (
           <div>
-            data
+            {
+              items.map(item => (
+                <h1>{item.name.first}</h1>
+              ))
+            }
           </div>
         )
       }
