@@ -33,7 +33,7 @@ class App extends Component {
           <div>
             {
               items.map(item => (
-                <h1>{item.name.first}</h1>
+                <h1>{item.name.first} {item.name.last}</h1>
               ))
             }
           </div>
