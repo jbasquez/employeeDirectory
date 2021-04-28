@@ -79,7 +79,7 @@ class Form extends Component {
                     value={this.state.phoneNumber}
                     name="birthDate"
                     onChange={this.handleInputChange}
-                    type="text"
+                    type="number"
                     placeholder="xxx-xxx-xxxx"
                     />
                     <button onClick={this.formSubmit} className="submit">Submit</button>
