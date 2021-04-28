@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch("https://randomuser.me/api/")
+    fetch("https://randomuser.me/api/?results=20")
     .then((response)=> response.json())
     .then((response)=>{
       this.setState({
