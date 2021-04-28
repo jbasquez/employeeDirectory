@@ -30,10 +30,14 @@ class App extends Component {
         )
       }else{
         return (
-          <div>
+          <div className="container">
             {
               items.map(item => (
+                <div>
                 <h1>{item.name.first} {item.name.last}</h1>
+                <h2>{item.gender}</h2>
+                </div>
+ 
               ))
             }
           </div>
