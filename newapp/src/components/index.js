@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import getAll from "../utils/api";
 
 class Form extends Component {
     state ={
@@ -83,6 +84,7 @@ class Form extends Component {
                     placeholder="xxx-xxx-xxxx"
                     />
                     <button onClick={this.formSubmit} className="submit">Submit</button>
+                    <button onClick={getAll} className="submit">Submit</button>
                 </form>
             </div>
         )
