@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./components/nav";
+import Search from './components/search';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,14 @@ class App extends Component {
       })
     })
   }
+
+  handleFilterByFirstName(value){
+    const filtered =this.state.employees.filter(employee=>{
+      employee.name.first.includes(value)
+    })
+    this.setState({employees: filtered})
+  }
+
   render(){
     const {employees, loading} = this.state;
       if(!loading){
@@ -34,6 +43,7 @@ class App extends Component {
         return (
           <>
             <Navbar />
+            <Search handleFilterByFirstName ={this.handleFilterByFirstName} />
             <div className="container">
               
               
