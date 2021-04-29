@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./components/nav";
 import Search from './components/search';
+import Header from "./components/header";
 
 class App extends Component {
   constructor(props) {
