@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Search from './components/search';
+import Header from './components/header';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <Header /> */}
     <App />
+    {/* <button onClick={Search}>Search</button> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
