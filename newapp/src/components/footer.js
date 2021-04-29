@@ -1,12 +1,10 @@
-// import React, { Component } from "react";
+import React, { Component } from "react";
 
-// class Footer extends Component {
-//     render() {
-//         return (){
-//             <div>
-//             <h4= "Made by: Joe Basquez" />
-//             </div>
-//         }
-//     }
-// }
-// export default Footer;
+class Footer extends Component {
+        return (){
+            <div>
+            <h4>Made by Joe Basquez</h4>
+            </div>
+        }
+}
+export default Footer;
