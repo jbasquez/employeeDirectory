@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState }  from "react";
 import Navbar from "./components/nav";
 import Search from './components/search';
 import Header from "./components/header";
@@ -22,12 +22,14 @@ class App extends Component {
         employees: response.results,
         loading: true
       })
+      console.log("testin1234");
+  
     })
   }
 
   handleFilterByFirstName(value){
     const filtered =this.state.employees.filter(employee=>{
-      employee.name.first.includes(value)
+      return employee.name.first.includes(value)
     })
     this.setState({employees: filtered})
   }
