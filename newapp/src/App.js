@@ -20,22 +20,26 @@ class App extends Component {
     .then((response)=>{
       this.setState({
         employees: response.results,
+        filtered: response.results,
         loading: true
       })
-      console.log("testin1234");
-  
+      // console.log("testin1234", this.state.employees);
+      // console.log(response.results);
+      
     })
   }
 
   handleFilterByFirstName(value){
+    console.log(value);
+
     const filtered =this.state.employees.filter(employee=>{
       return employee.name.first.includes(value)
     })
-    this.setState({employees: filtered})
+    this.setState({filtered: filtered})
   }
 
   render(){
-    const {employees, loading} = this.state;
+    const {filtered, loading} = this.state;
       if(!loading){
         return (
         <div>
@@ -46,7 +50,7 @@ class App extends Component {
         return (
           <>
             <Navbar />
-            <Search handleFilterByFirstName ={this.handleFilterByFirstName} />
+            <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
             <div className="container">
               
               
@@ -60,7 +64,7 @@ class App extends Component {
                 </thead>
                 <tbody>
                 {
-                  employees.map(emp => (
+                  filtered.map(emp => (
                     <tr>
                       <td>{emp.name.first}</td>
                       <td>{emp.name.last}</td>
