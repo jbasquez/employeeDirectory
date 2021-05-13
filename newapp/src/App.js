@@ -1,7 +1,6 @@
-import React, { Component, useState }  from "react";
+import React, { Component}  from "react";
 import Navbar from "./components/nav";
 import Search from './components/search';
-import Header from "./components/header";
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +9,8 @@ class App extends Component {
       employees: [],
       filtered: [],
       loading: false,
-      search: ""
+      search: "",
+      sortType:""
     }
   }
 
@@ -20,22 +20,27 @@ class App extends Component {
     .then((response)=>{
       this.setState({
         employees: response.results,
+        filtered: response.results,
         loading: true
       })
-      console.log("testin1234");
-  
+      // console.log("testin1234", this.state.employees);
+      // console.log(response.results);
+      
     })
   }
 
   handleFilterByFirstName(value){
+    console.log(value);
+
     const filtered =this.state.employees.filter(employee=>{
       return employee.name.first.includes(value)
     })
-    this.setState({employees: filtered})
+    this.setState({filtered: filtered})
   }
+  
 
   render(){
-    const {employees, loading} = this.state;
+    const {filtered, loading} = this.state;
       if(!loading){
         return (
         <div>
@@ -43,10 +48,16 @@ class App extends Component {
         </div>
         )
       }else{
+        const sorted=filtered.sort((a, b) =>{
+          const isReversed =(this.state.sortType==="asc") ? 1 : -1;
+          return isReversed * a.name.first.localeCompare(b.name.first)
+        })
         return (
           <>
             <Navbar />
-            <Search handleFilterByFirstName ={this.handleFilterByFirstName} />
+            <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
+            <button className="button" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
+            <button className="button" onClick={()=>this.onSort('desc')}>Sort A-Z</button>
             <div className="container">
               
               
@@ -60,7 +71,7 @@ class App extends Component {
                 </thead>
                 <tbody>
                 {
-                  employees.map(emp => (
+                  sorted.map(emp => (
                     <tr>
                       <td>{emp.name.first}</td>
                       <td>{emp.name.last}</td>
