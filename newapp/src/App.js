@@ -1,7 +1,6 @@
-import React, { Component, useState }  from "react";
+import React, { Component}  from "react";
 import Navbar from "./components/nav";
 import Search from './components/search';
-import Header from "./components/header";
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +9,8 @@ class App extends Component {
       employees: [],
       filtered: [],
       loading: false,
-      search: ""
+      search: "",
+      sortType:"asc"
     }
   }
 
@@ -37,6 +37,7 @@ class App extends Component {
     })
     this.setState({filtered: filtered})
   }
+  
 
   render(){
     const {filtered, loading} = this.state;
@@ -47,6 +48,10 @@ class App extends Component {
         </div>
         )
       }else{
+        const sorted=filtered.sort((a, b) =>{
+          const isReversed =(this.state.sortType==="asc") ? 1 : -1;
+          return isReversed * a.name.first.localeCompare(b.name.first)
+        })
         return (
           <>
             <Navbar />
