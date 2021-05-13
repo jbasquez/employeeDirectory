@@ -57,7 +57,7 @@ class App extends Component {
             <Navbar />
             <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
             <button className="button" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
-            <button className="button" onClick={()=>this.onSort('desc')}>Sort A-Z</button>
+            <button className="button" onClick={()=>this.setState({sortType: "desc"})}>Sort A-Z</button>
             <div className="container">
               
               
