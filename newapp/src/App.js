@@ -10,7 +10,7 @@ class App extends Component {
       filtered: [],
       loading: false,
       search: "",
-      sortType:"asc"
+      sortType:""
     }
   }
 
@@ -56,6 +56,8 @@ class App extends Component {
           <>
             <Navbar />
             <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
+            <button className="button" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
+            <button className="button" onClick={()=>this.onSort('desc')}>Sort A-Z</button>
             <div className="container">
               
               
@@ -69,7 +71,7 @@ class App extends Component {
                 </thead>
                 <tbody>
                 {
-                  filtered.map(emp => (
+                  sorted.map(emp => (
                     <tr>
                       <td>{emp.name.first}</td>
                       <td>{emp.name.last}</td>
