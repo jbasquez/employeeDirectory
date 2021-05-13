@@ -1,6 +1,7 @@
 import React, { Component}  from "react";
 import Navbar from "./components/nav";
 import Search from './components/search';
+import"./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -55,9 +56,11 @@ class App extends Component {
         return (
           <>
             <Navbar />
+            <div className="searchContainer">
             <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
-            <button className="button" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
+            <button className="button margin" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
             <button className="button" onClick={()=>this.setState({sortType: "desc"})}>Sort A-Z</button>
+            </div>
             <div className="container">
               
               
