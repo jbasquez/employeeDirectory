@@ -24,15 +24,10 @@ class App extends Component {
         filtered: response.results,
         loading: true
       })
-      // console.log("testin1234", this.state.employees);
-      // console.log(response.results);
-      
     })
   }
 
   handleFilterByFirstName(value){
-    console.log(value);
-
     const filtered =this.state.employees.filter(employee=>{
       return employee.name.first.includes(value)
     })
