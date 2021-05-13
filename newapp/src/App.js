@@ -1,6 +1,7 @@
 import React, { Component}  from "react";
 import Navbar from "./components/nav";
 import Search from './components/search';
+import"./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch("https://randomuser.me/api/?results=20")
+    fetch("https://randomuser.me/api/?results=200")
     .then((response)=> response.json())
     .then((response)=>{
       this.setState({
@@ -23,15 +24,10 @@ class App extends Component {
         filtered: response.results,
         loading: true
       })
-      // console.log("testin1234", this.state.employees);
-      // console.log(response.results);
-      
     })
   }
 
   handleFilterByFirstName(value){
-    console.log(value);
-
     const filtered =this.state.employees.filter(employee=>{
       return employee.name.first.includes(value)
     })
@@ -55,9 +51,11 @@ class App extends Component {
         return (
           <>
             <Navbar />
+            <div className="searchContainer">
             <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
-            <button className="button" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
-            <button className="button" onClick={()=>this.onSort('desc')}>Sort A-Z</button>
+            <button className="button margin" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
+            <button className="button" onClick={()=>this.setState({sortType: "desc"})}>Sort Z-A</button>
+            </div>
             <div className="container">
               
               
