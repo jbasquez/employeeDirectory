@@ -59,7 +59,7 @@ class App extends Component {
             <div className="searchContainer">
             <Search handleFilterByFirstName ={(e)=>this.handleFilterByFirstName(e)} />
             <button className="button margin" onClick={()=>this.setState({sortType: "asc"})}>Sort A-Z</button>
-            <button className="button" onClick={()=>this.setState({sortType: "desc"})}>Sort A-Z</button>
+            <button className="button" onClick={()=>this.setState({sortType: "desc"})}>Sort Z-A</button>
             </div>
             <div className="container">
               
